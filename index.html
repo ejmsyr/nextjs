@@ -1,8 +1,19 @@
-<!doctype html><meta name=viewport content="width=device-width,initial-scale=1">
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Banner</title>
-<style>body{font:700 9vw/1.1 system-ui;margin:0;display:grid;place-items:center;height:100vh}</style>
-<div id=o></div>
+<style>
+  body {
+    font: 700 9vw/1.1 system-ui;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+</style>
+<div id="o"></div>
 <script>
-  const p = decodeURIComponent(location.pathname.slice(1));
-  o.textContent = p || new URL(location).searchParams.get('t') || 'Ready.';
+  const rawPath = location.pathname.slice(1); // remove leading "/"
+  const decodedPath = rawPath ? decodeURIComponent(rawPath) : "";
+  const paramText = new URL(location).searchParams.get("t") || "";
+  document.getElementById("o").textContent = decodedPath || paramText || "Ready.";
 </script>
