@@ -1,0 +1,7 @@
+<!doctype html><meta name=viewport content="width=device-width,initial-scale=1">
+<style>body{font:700 9vw/1.1 system-ui;margin:0;display:grid;place-items:center;height:100vh}</style>
+<div id=o></div>
+<script>
+  const p = decodeURIComponent(location.pathname.slice(1));
+  o.textContent = p || new URL(location).searchParams.get('t') || '…';
+</script>
